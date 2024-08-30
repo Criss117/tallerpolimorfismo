@@ -4,18 +4,24 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
+
 class CircleTest {
-    @Test
-    void testCreate() {
-        Circle circle = new Circle(2.0);
-        assertEquals(2.0, circle.getRadius());
+    private Circle circle;
+
+    @BeforeEach
+    public void init() {
+        this.circle = new Circle(2.0);
     }
 
     @Test
+    void testCreate() {
+        assertEquals(2.0, this.circle.getRadius());
+    }
 
+    @Test
     void testCalculate() {
-        Circle circle = new Circle(2.0);
-        assertEquals(2.0 * Math.PI * 2.0, circle.calculatePerimeter());
+        assertEquals(2.0 * Math.PI * 2.0, this.circle.calculatePerimeter());
     }
 
 }
